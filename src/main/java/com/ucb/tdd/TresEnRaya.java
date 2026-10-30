@@ -8,17 +8,26 @@ public class TresEnRaya {
     private char ultimoJugador = '+';
     
     private final int LIMITE = 3;
-    
-    
+
+    private boolean juegoTerminado = false;
+
+
     public String jugar(int x, int y) throws Exception{
-        
+
+        if (juegoTerminado) {
+            throw new Exception("El juego ya termino");
+        }
+
         verificarEje(x);
         verificarEje(y);
-        
-        ultimoJugador = siguienteTurno();
-        asignarPosicion(x, y, ultimoJugador);
-        
+
+        //El turno solo cambia si la pieza se pudo colocar
+        char jugador = siguienteTurno();
+        asignarPosicion(x, y, jugador);
+        ultimoJugador = jugador;
+
         if (hayGanador()) {
+            juegoTerminado = true;
             return ultimoJugador+" es el ganador";
         }
         
