@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# IDE
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+.vscode/
+.DS_Store
